@@ -84,7 +84,8 @@ function start() {
 
 		});
 
-		var players = [username];
+		var players = [];
+		players.push(username);
 
 		socket.on('player', function(data){
 
