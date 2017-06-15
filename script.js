@@ -75,6 +75,7 @@ function start() {
 		socket.emit('create', {username: username});
 
 		socket.on('roomShow', function(data) {
+			console.log('roomShow');
 
 			room = data.room;
 
@@ -88,14 +89,18 @@ function start() {
 		players.push(username);
 
 		socket.on('player', function(data){
+			console.log('player');
 
 		  socket.emit('sendPlayers', {socket: data.socket, players: players});
+			console.log(players);
 
 		  $('<li />', {text : data.username, id : data.username, appendTo : $('#playerList')});
 
 		//  var playerLi = $('#playerList').append($('<li>')).text(data.username).attr('id', data.username);
 
 		  players.push(data.username);
+			console.log(players);
+
 
 		  });
 
@@ -113,12 +118,12 @@ function start() {
 
 		$("#game").show();
 
-		$('<li />', {text : username, id : username, appendTo : $('#playerList')});
+		///$('<li />', {text : username, id : username, appendTo : $('#playerList')});
 
 		socket.emit('join', {room: "", username: username});
 
 		socket.on('roomShow', function(data) {
-
+			console.log('roomShow');
 			room = data.room;
 
 		  $("#roomSpan").text(data.room);
@@ -126,6 +131,7 @@ function start() {
 		});
 
 		socket.on('playerList', function(data) {
+			console.log('playerList');
 
 		  data.players.forEach(function(player) {
 
@@ -138,9 +144,8 @@ function start() {
 		});
 
 		socket.on('player', function(data){
-		  if (data.username != username) {
-		    $('<li />', {text : data.username, id : data.username, appendTo : $('#playerList')});
-		  }
+			console.log('player');
+		  $('<li />', {text : data.username, id : data.username, appendTo : $('#playerList')});
 			//var playerLi = $('#playerList').append($('<li>')).text(data.username).attr('id', data.username);
 
 		  });
@@ -170,6 +175,7 @@ function start() {
 		window.sendChat = sendChat;
 
 		socket.on('chatMessage', function(data) {
+			console.log('chatMessage');
 
 			$('<li />', {text : data.username+': '+data.message, class : 'message', appendTo : $('#chatBox')});
 
@@ -178,6 +184,7 @@ function start() {
 		  });
 
 		socket.on('playerDisconnect', function(data) {
+			console.log('playerDisconnect');
 
 			$('#'+data.username).remove();
 
