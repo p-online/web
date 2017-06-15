@@ -29,7 +29,7 @@ body {
   padding: auto;
   list-style-type: none;
 }
-
+/*
 @keyframes shake {
 	0%	{left: 0px; top: 0px; color: black;}
 	20%	{left: 2px; top: -2px; color: blue;}
@@ -37,7 +37,7 @@ body {
 	60% {left: -2px; top: -2px; color: orange;}
 	80%	{left: 2px; top: 2px; color: red;}
 	100% {left: 0px; top: 0px; color: black;}
-}
+}*/
 /*
 @-webkit-keyframes shake {
 	0%	{left: -5px; top: -5px;}

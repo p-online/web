@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	Dance();
+
 			if (connection()) {
 
 				$("#offline").hide();
@@ -13,7 +15,16 @@ $(document).ready(function() {
 });
 
 
-
+function Dance() {
+	var dx = Math.round(Math.random() * 20 - 10);
+	var dy = Math.round(Math.random() * 20 - 10);
+	var red = Math.round(Math.random() * 256);
+	var green = Math.round(Math.random() * 256);
+	var blue = Math.round(Math.random() * 256);
+	$('#title').animate({top:dx, left:dy, color:"rgb("+red+","+green+","+blue+")"}, 100, function(){
+		Dance();
+	});
+}
 
 
 
