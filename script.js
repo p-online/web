@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	Dance();
+	Dance(window.outerWidth/5, $('#navbar').height()/1.5);
 
 			if (connection()) {
 
@@ -15,14 +15,14 @@ $(document).ready(function() {
 });
 
 
-function Dance() {
-	var dx = Math.round(Math.random() * 20 - 10);
-	var dy = Math.round(Math.random() * 20 - 10);
+function Dance(width, height) {
+	var dx = Math.round(Math.random() * width - width/2);
+	var dy = Math.round(Math.random() * height - height/2);
 	var red = Math.round(Math.random() * 256);
 	var green = Math.round(Math.random() * 256);
 	var blue = Math.round(Math.random() * 256);
-	$('#title').animate({top:dx, left:dy, color:"rgb("+red+","+green+","+blue+")"}, 100, function(){
-		Dance();
+	$('#title').animate({top:dy, left:dx, color:"rgb("+red+","+green+","+blue+")"}, 100, function(){
+		Dance(width, height);
 	});
 }
 

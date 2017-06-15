@@ -2,6 +2,10 @@ body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
+#navbar {
+	height: 70px;
+	width: 100%;
+}
 
 .tab-pane {
 	padding-top: 10px;
